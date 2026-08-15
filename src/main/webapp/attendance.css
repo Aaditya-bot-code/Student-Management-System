@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.attendance-box {
+    width: 420px;
+    padding: 35px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.attendance-box h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #263238;
+}
+
+.attendance-box label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #333;
+}
+
+.attendance-box input,
+.attendance-box select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.attendance-box input:focus,
+.attendance-box select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.attendance-box button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    border: none;
+    border-radius: 7px;
+    background-color: #667eea;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.attendance-box button:hover {
+    background-color: #5568d9;
+}
+
+.attendance-box a {
+    display: block;
+    text-align: center;
+    margin-top: 18px;
+    color: #667eea;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.attendance-box a:hover {
+    text-decoration: underline;
+}
