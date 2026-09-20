@@ -80,5 +80,21 @@ The application uses MySQL for storing and managing student, admin, attendance, 
 ## Project Purpose
 
 This project was developed to gain practical experience in Java web development, database connectivity, CRUD operations, authentication, attendance and marks management, and database-driven application development.
-
 It demonstrates the use of Java Servlets, JSP, JDBC, MySQL, and Apache Tomcat to build a practical web application.
+
+## Screenshots
+
+### Login Page
+![Login Page](screenshots/login.png)
+
+### Admin Dashboard
+![Admin Dashboard](screenshots/Dashboard.png)
+
+### Student Management
+![Student Management](screenshots/Students.png)
+
+### Attendance Management
+![Attendance Management](screenshots/Attendance.png)
+
+### Marks Management
+![Marks Management](screenshots/Marks.png)
