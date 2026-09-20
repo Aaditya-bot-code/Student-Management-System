@@ -2,6 +2,7 @@ package controller;
 
 import jakarta.servlet.ServletException;
 
+
 import dao.AttendanceDAO;
 import model.Attendance;
 import jakarta.servlet.annotation.WebServlet;
@@ -61,6 +62,28 @@ public class AttendanceServlet extends HttpServlet {
 			request.setAttribute("studentList", studentList);
 			request.getRequestDispatcher("editAttendance.jsp").forward(request, response);
 		}
+		else if("search".equals(action))
+		{
+			int studentId=Integer.parseInt(request.getParameter("studentId"));
+			ArrayList<Attendance> attendanceList=attendanceDAO.searchAttendanceByStudentId(studentId);
+			request.setAttribute("attendanceList", attendanceList);
+			request.getRequestDispatcher("viewAttendance.jsp").forward(request, response);
+		}
+		else if("searchByDate".equals(action))
+		{
+			String date=request.getParameter("date");
+			ArrayList<Attendance> attendanceList=attendanceDAO.searchAttendanceByDate(date);
+			request.setAttribute("attendanceList", attendanceList);
+			request.getRequestDispatcher("viewAttendance.jsp").forward(request, response);
+		}
+		else if("searchStatus".equals(action))
+		{
+			String status=request.getParameter("status");
+			ArrayList<Attendance> attendanceList=attendanceDAO.searchAttendanceByStatus(status);
+			request.setAttribute("attendanceList", attendanceList);
+			request.getRequestDispatcher("viewAttendance.jsp").forward(request, response);
+		}
+		
 		else
 		{
 		StudentDAO dao=new StudentDAO();
@@ -114,7 +137,7 @@ public class AttendanceServlet extends HttpServlet {
 		boolean result=dao.addAttendance(attendance);
 		if(result)
 		{
-			response.sendRedirect("attendance.jsp");
+			response.sendRedirect("AttendanceServlet?action=view");
 		}
 		else
 		{

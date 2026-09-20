@@ -1,110 +1,164 @@
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 body {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 0;
+    padding: 50px 20px;
+    font-family: Arial, Helvetica, sans-serif;
     background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #1f2937;
+    min-height: 100vh;
 }
-
 .home-box {
-    width: 600px;
-    padding: 30px 40px;
+    width: 900px;
+    max-width: 95%;
+    margin: 20px auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.88);
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(30, 41, 59, 0.25);
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 10px;
     text-align: center;
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    color: #172554;
+    font-size: 30px;
+    font-weight: 600;
 }
 
-.home-box h1 {
-    font-size: 36px;
-    font-weight: 800;
-    line-height: 1.2;
-    margin: 0 0 15px 0;
-    color: #263238;
-    letter-spacing: 0.5px;
-    text-shadow: none;
+h2 {
+    margin-top: 0;
+    margin-bottom: 35px;
+    text-align: center;
+    color: #475569;
+    font-size: 18px;
+    font-weight: 500;
 }
-.home-box h1::after {
-    content: "";
-    display: block;
-    width: 100px;
-    height: 4px;
-    margin: 12px auto 0;
-
-    background: linear-gradient(90deg, #667eea, #764ba2);
-    border-radius: 10px;
-}
-.home-box h2 {
-    margin-bottom: 25px;
-    font-size: 24px;
-    color: #667eea;
-}
-
-/* Dashboard Cards */
 
 .student-count,
 .department-count {
     display: inline-block;
-    width: 210px;
-    padding: 15px;
-    margin: 5px;
-    background-color: #f4f6ff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 48%;
+    padding: 22px;
+    margin-bottom: 30px;
+    text-align: center;
+    background: linear-gradient(135deg, #dbeafe, #e0e7ff);
+    border: 1px solid #bfdbfe;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.08);
+}
+
+.student-count {
+    margin-right: 2%;
 }
 
 .student-count h3,
 .department-count h3 {
-    margin-bottom: 8px;
+    margin: 0 0 10px;
+    color: #334e75;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.student-count h3 i,
+.department-count h3 i {
+    margin-right: 8px;
+    color: #2563eb;
     font-size: 18px;
-    color: #333;
 }
 
 .student-count p,
 .department-count p {
+    margin: 0;
+    color: #2563eb;
     font-size: 30px;
     font-weight: bold;
-    color: #667eea;
-}
-
-/* Buttons */
-
-.home-btn,
-.logout-btn {
-    display: block;
-    width: 85%;
-    margin: 12px auto;
-    padding: 13px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    transition: 0.3s;
 }
 
 .home-btn {
-    background-color: #667eea;
-    color: white;
+    display: inline-block;
+    width: 48%;
+    margin-bottom: 15px;
+    padding: 14px;
+    text-align: center;
+    text-decoration: none;
+    background: #2563eb;
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.home-btn:nth-of-type(odd) {
+    margin-right: 2%;
 }
 
 .home-btn:hover {
-    background-color: #5568d9;
+    background: #1d4ed8;
     transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(37, 99, 235, 0.30);
+}
+
+.home-btn i,
+.logout-btn i {
+    margin-right: 10px;
+    font-size: 17px;
 }
 
 .logout-btn {
-    background-color: #e74c3c;
-    color: white;
+    display: block;
+    width: 48%;
+    margin: 20px auto 0;
+    padding: 14px;
+    text-align: center;
+    text-decoration: none;
+    background: #dc2626;
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.2s;
 }
 
 .logout-btn:hover {
-    background-color: #c0392b;
+    background: #b91c1c;
     transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(220, 38, 38, 0.30);
+}
+
+@media (max-width: 650px) {
+
+    .home-box {
+        padding: 25px;
+    }
+
+    .student-count,
+    .department-count {
+        display: block;
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .home-btn {
+        display: block;
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .logout-btn {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
 }

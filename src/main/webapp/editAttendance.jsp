@@ -16,80 +16,64 @@
 <head>
 <meta charset="UTF-8">
 <title>Edit Attendance</title>
+<link rel="stylesheet" href="editAttendance.css">
+<script src="https://kit.fontawesome.com/946df3c2e5.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="editAttendance.css">
 </head>
 <body>
-<h1>Edit Attendance</h1>
-<form action="AttendanceServlet" method="post">
-<input type="hidden" name="action" value="update">
 
-    <input type="hidden"
-           name="attendanceId"
-           value="<%= attendance.getAttendanceId() %>">
+<div class="form-wrapper">
 
-    <label>Student:</label>
+    <h1><i class="fa-solid fa-calendar-check"></i> Edit Attendance</h1>
+    <p class="subtitle">Update Attendance Record</p>
 
-    <select name="studentId" required>
+    <form action="AttendanceServlet" method="post">
+        <input type="hidden" name="action" value="update">
+        <input type="hidden" name="attendanceId" value="<%= attendance.getAttendanceId() %>">
 
-        <%
-        for (Student s : studentList) {
-        %>
-
-        <option value="<%= s.getStudentId() %>"
+        <label><i class="fa-solid fa-user"></i> Student</label>
+        <select name="studentId" required>
             <%
-            if (s.getStudentId() == attendance.getStudentId()) {
+            for (Student s : studentList) {
             %>
-                selected
+            <option value="<%= s.getStudentId() %>"
+                <%
+                if (s.getStudentId() == attendance.getStudentId()) {
+                %>
+                    selected
+                <%
+                }
+                %>>
+                <%= s.getName() %>
+            </option>
             <%
             }
-            %>>
-            <%= s.getName() %>
-        </option>
+            %>
+        </select>
 
-        <%
-        }
-        %>
+        <label><i class="fa-solid fa-calendar-days"></i> Date</label>
+        <input type="date" name="date" value="<%= attendance.getDate() %>" required>
 
-    </select>
+        <label><i class="fa-solid fa-clipboard-check"></i> Status</label>
+        <select name="status" required>
+            <option value="Present"
+                <%= "Present".equals(attendance.getStatus()) ? "selected" : "" %>>
+                Present
+            </option>
+            <option value="Absent"
+                <%= "Absent".equals(attendance.getStatus()) ? "selected" : "" %>>
+                Absent
+            </option>
+        </select>
 
-    <br><br>
+        <button type="submit"><i class="fa-solid fa-floppy-disk"></i> Update Attendance</button>
+    </form>
 
-    <label>Date:</label>
+    <div class="back-home">
+        <a href="AttendanceServlet?action=view"><i class="fa-solid fa-arrow-left"></i> Back to Attendance</a>
+    </div>
 
-    <input type="date"
-           name="date"
-           value="<%= attendance.getDate() %>"
-           required>
-
-    <br><br>
-
-    <label>Status:</label>
-
-    <select name="status" required>
-
-        <option value="Present"
-            <%= "Present".equals(attendance.getStatus()) ? "selected" : "" %>>
-            Present
-        </option>
-
-        <option value="Absent"
-            <%= "Absent".equals(attendance.getStatus()) ? "selected" : "" %>>
-            Absent
-        </option>
-
-    </select>
-
-    <br><br>
-
-    <button type="submit">Update Attendance</button>
-
-</form>
-
-<br>
-
-<a href="AttendanceServlet?action=view">
-    Back to Attendance
-</a>
-
+</div>
 
 </body>
 </html>

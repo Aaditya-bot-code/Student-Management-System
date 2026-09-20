@@ -13,6 +13,7 @@ if (message != null) {
 %>
 
 <div class="message">
+    <i class="fa-solid fa-circle-check"></i>
     <%= message %>
 </div>
 <%
@@ -24,138 +25,14 @@ if (message != null) {
 <head>
     <meta charset="UTF-8">
     <title>View Students</title>
+    <link rel="stylesheet" href="viewStudents.css">
+    <script src="https://kit.fontawesome.com/946df3c2e5.js" crossorigin="anonymous"></script>
 
-    <style>
-    .edit-btn,
-.delete-btn {
-    display: inline-block;
-    padding: 8px 14px;
-    margin: 2px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.edit-btn {
-    background-color: #333;
-    color: white;
-}
-
-.edit-btn:hover {
-    background-color: #555;
-}
-
-.delete-btn {
-    background-color: #c0392b;
-    color: white;
-}
-
-.delete-btn:hover {
-    background-color: #922b21;
-}
-    .message {
-    width: 80%;
-    margin: 15px auto;
-    padding: 12px;
-    text-align: center;
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-    border-radius: 6px;
-    font-weight: bold;
-}
-    .search-form {
-    width: 80%;
-    margin: 20px auto;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.search-form input {
-    width: 300px;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 15px;
-    outline: none;
-}
-
-.search-form input:focus {
-    border-color: #333;
-}
-
-.search-form button {
-    padding: 12px 22px;
-    border: none;
-    border-radius: 6px;
-    background-color: #333;
-    color: white;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-.search-form button:hover {
-    background-color: #555;
-}
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f8;
-            padding: 30px;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        table {
-            width: 80%;
-            margin: 30px auto;
-            border-collapse: collapse;
-            background-color: white;
-        }
-
-        th, td {
-            border: 1px solid #ccc;
-            padding: 12px;
-            text-align: center;
-        }
-
-        th {
-            background-color: #333;
-            color: white;
-        }
-        .back-home {
-    text-align: center;
-    margin-top: 25px;
-}
-
-.back-home a {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-}
-
-.back-home a:hover {
-    background-color: #555;
-}
-
-        .no-data {
-            text-align: center;
-            margin-top: 30px;
-            color: red;
-        }
-    </style>
 </head>
 
 <body>
 
-<h1>Student List</h1>
+<h1><i class="fa-solid fa-users"></i> Student List</h1>
 <form action="StudentServlet" method="get" class="search-form">
 
     <input type="hidden" name="action" value="search">
@@ -165,7 +42,7 @@ if (message != null) {
            placeholder="Search by ID or Name"
            required>
 
-    <button type="submit">Search</button>
+    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
 
 </form>
 <%
@@ -175,6 +52,7 @@ if (message != null) {
     if (studentList != null && !studentList.isEmpty()) {
 %>
 
+<div class="table-wrapper">
 <table>
 
     <tr>
@@ -201,13 +79,13 @@ if (message != null) {
         <td>
         <a class="edit-btn"
    		href="StudentServlet?action=edit&id=<%= s.getStudentId() %>">
-    	Edit
+    	<i class="fa-solid fa-pen"></i> Edit
 		</a>
 
 		<a class="delete-btn"
    		href="StudentServlet?action=delete&id=<%= s.getStudentId() %>"
    		onclick="return confirm('Are you sure you want to delete this student?');">
-   		 Delete
+   		 <i class="fa-solid fa-trash"></i> Delete
 		</a>
     </td>
     
@@ -218,8 +96,6 @@ if (message != null) {
 %>
 
 </table>
-<div class="back-home">
-<a href="HomeServlet">  <--Back to Home </a>
 </div>
 
 
@@ -228,12 +104,16 @@ if (message != null) {
     else {
 %>
 <div class="no-data">
-    <h3>No students found.</h3>
+    <h3><i class="fa-solid fa-circle-exclamation"></i> No students found.</h3>
 </div>
 
 <%
     }
 %>
+
+<div class="back-home">
+<a href="HomeServlet"><i class="fa-solid fa-house"></i> Back to Home</a>
+</div>
 
 </body>
 </html>

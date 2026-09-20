@@ -20,7 +20,6 @@ public class AdminDAO {
 	        ps.setString(2, admin.getPassword().trim());
 
 	        System.out.println("Username = " + admin.getUsername());
-	        System.out.println("Password = " + admin.getPassword());
 
 	        ResultSet rs = ps.executeQuery();
 

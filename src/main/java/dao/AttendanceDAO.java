@@ -1,7 +1,5 @@
 package dao;
 import java.sql.Connection;
-
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -147,6 +145,90 @@ public class AttendanceDAO {
 			e.printStackTrace();
 		}
 		return false;
+	}
+	public ArrayList<Attendance> searchAttendanceByStudentId(int studentId)
+	{
+		ArrayList<Attendance> attendanceList=new ArrayList<>();
+		try {
+			Connection con=DBConnection.getConnection();
+			String sql = "SELECT a.attendanceId, a.studentId, s.name, a.date, a.status "
+			           + "FROM attendance a "
+			           + "JOIN student s ON a.studentId = s.studentId "
+			           + "WHERE a.studentId=?";
+			PreparedStatement ps=con.prepareStatement(sql);
+			ps.setInt(1, studentId);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()) {
+				Attendance attendance=new Attendance();
+				attendance.setAttendanceId(rs.getInt("attendanceId"));
+				attendance.setStudentId(rs.getInt("studentId"));
+				attendance.setStudentName(rs.getString("name"));
+				attendance.setDate(rs.getString("date"));
+				attendance.setStatus(rs.getString("status"));
+				attendanceList.add(attendance);
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return attendanceList;
+	}
+	public ArrayList<Attendance> searchAttendanceByDate(String date)
+	{
+		ArrayList<Attendance> attendanceList=new ArrayList<>();
+		try {
+			Connection con=DBConnection.getConnection();
+			String sql = "SELECT a.attendanceId, a.studentId, s.name, a.date, a.status "
+			           + "FROM attendance a "
+			           + "JOIN student s ON a.studentId = s.studentId "
+			           + "WHERE a.date=?";
+			PreparedStatement ps=con.prepareStatement(sql);
+			ps.setString(1, date);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()) {
+				Attendance attendance=new Attendance();
+				attendance.setAttendanceId(rs.getInt("attendanceId"));
+				attendance.setStudentId(rs.getInt("studentId"));
+				attendance.setStudentName(rs.getString("name"));
+				attendance.setDate(rs.getString("date"));
+				attendance.setStatus(rs.getString("status"));
+				attendanceList.add(attendance);
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return attendanceList;
+	}
+	public ArrayList<Attendance> searchAttendanceByStatus(String status)
+	{
+		ArrayList<Attendance> attendanceList=new ArrayList<>();
+		try {
+			Connection con=DBConnection.getConnection();
+			String sql = "SELECT a.attendanceId, a.studentId, s.name, a.date, a.status "
+	                   + "FROM attendance a "
+	                   + "JOIN student s ON a.studentId = s.studentId "
+	                   + "WHERE a.status=?";
+			PreparedStatement ps=con.prepareStatement(sql);
+			ps.setString(1, status);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()) {
+				Attendance attendance=new Attendance();
+				attendance.setAttendanceId(rs.getInt("attendanceId"));
+				attendance.setStudentId(rs.getInt("studentId"));
+				attendance.setStudentName(rs.getString("name"));
+				attendance.setDate(rs.getString("date"));
+				attendance.setStatus(rs.getString("status"));
+				attendanceList.add(attendance);
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return attendanceList;
 	}
 	
 	

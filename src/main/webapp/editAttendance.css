@@ -63,7 +63,8 @@ label i {
     width: 16px;
 }
 
-input {
+input,
+select {
     padding: 14px 16px;
     border: 1px solid #d7dae3;
     border-radius: 10px;
@@ -71,13 +72,11 @@ input {
     outline: none;
     background: white;
     transition: 0.2s;
+    font-family: inherit;
 }
 
-input::placeholder {
-    color: #9aa1b1;
-}
-
-input:focus {
+input:focus,
+select:focus {
     border-color: #667eea;
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
 }

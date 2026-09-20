@@ -50,7 +50,7 @@ body {
     border-color: #667eea;
 }
 
-.attendance-box button {
+.attendance-box button.submit-btn {
     width: 100%;
     margin-top: 25px;
     padding: 12px;
@@ -63,19 +63,27 @@ body {
     cursor: pointer;
 }
 
-.attendance-box button:hover {
+.attendance-box button.submit-btn:hover {
     background-color: #5568d9;
 }
 
-.attendance-box a {
-    display: block;
-    text-align: center;
-    margin-top: 18px;
-    color: #667eea;
-    text-decoration: none;
+.attendance-box button.back-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: fit-content;
+    margin: 15px auto 0;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 7px;
+    background-color: #764ba2;
+    color: white;
+    font-size: 13px;
     font-weight: bold;
+    cursor: pointer;
 }
 
-.attendance-box a:hover {
-    text-decoration: underline;
+.attendance-box button.back-btn:hover {
+    background-color: #5f3a83;
 }

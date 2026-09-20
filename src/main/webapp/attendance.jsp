@@ -15,6 +15,7 @@ if(session.getAttribute("admin")==null)
 <meta charset="UTF-8">
 <title>Mark Attendance</title>
 <link rel="stylesheet" href="attendance.css">
+<script src="https://kit.fontawesome.com/946df3c2e5.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="attendance-box">
@@ -52,10 +53,9 @@ if(session.getAttribute("admin")==null)
 <option value="Absent">Absent</option>
 
 </select>
-<button type="submit">Mark Attendance</button>
+<button type="submit" class="submit-btn"><i class="fa-solid fa-calendar-check"></i> Mark Attendance</button>
 </form>
-<a href="HomeServlet"><-- Back to home</a>
+<button type="button" class="back-btn" onclick="window.location.href='HomeServlet'"><i class="fa-solid fa-house"></i> Back to Home</button>
 </div>
-
 </body>
 </html>

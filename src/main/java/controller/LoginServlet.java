@@ -43,7 +43,6 @@ public class LoginServlet extends HttpServlet {
 		String username =request.getParameter("username");
 		String password =request.getParameter("password");
 		System.out.println("Username: " + username);
-		System.out.println("Password: " + password);
 		Admin admin=new Admin();
 		admin.setUsername(username);
 		admin.setPassword(password);
